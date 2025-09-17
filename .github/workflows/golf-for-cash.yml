@@ -1,7 +1,7 @@
 name: Task Scheduler - Golf for Cash
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */10 * * *"
   push:
     branches:
       - main
