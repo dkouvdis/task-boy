@@ -14,6 +14,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
 
       - run: bun install
+      - run: npx playwright install
 
       - name: Run the script
         run: bun run src/index.ts
