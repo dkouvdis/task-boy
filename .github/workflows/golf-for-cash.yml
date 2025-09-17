@@ -1,0 +1,22 @@
+name: Task Scheduler - Golf for Cash
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  do-job:
+    name: do-job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun install
+
+      - name: Run the script
+        run: bun run src/index.ts
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
